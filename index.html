@@ -433,30 +433,6 @@
         submitBtn.disabled = false;
       };
       xhr.send(JSON.stringify(formData));
-
-
-      fetch('https://your-form-submission-endpoint.com', { // Endpoint для отправки формы
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-      .then(response => {
-        if (response.ok) {
-          messageArea.textContent = 'Форма успешно отправлена!';
-          contactForm.reset(); // Очистка формы
-          localStorage.setItem('formData', JSON.stringify(formData)); // Сохранение данных
-        } else {
-          messageArea.textContent = 'Ошибка при отправке формы. Пожалуйста, попробуйте ещё раз.';
-        }
-      })
-      .catch(error => {
-        messageArea.textContent = 'Ошибка при отправке формы. Пожалуйста, попробуйте ещё раз.';
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-      });
     });
     </script>
 </body>
